@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:configurations
+	xmlns:tns="http://www.example.org/Configurations_Schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/Configurations_Schema ../../java/schema/Configurations_Schema.xsd "
+	refinementType="Application_MSPL_SG"
+	hspl_file="./src/main/auxiliary_files/input/HSPL/HSPL_Alice_test.xml"
+	psa_file="./src/main/auxiliary_files/input/PSA/PSA_Alice_test.xml"
+	optimizationType="minBuyCostmaxRating"
+	sg_input_file="./src/main/auxiliary_files/input/SG/SG_Alice3.xml"
+	sg_ouput_file="./src/main/auxiliary_files/output/SG/Alice_SG1_test.xml"
+	mspl_dir_input="./src/main/auxiliary_files/input/MSPL/"
+	mspl_dir_output="./src/main/auxiliary_files/output/MSPL/test/"
+	user_psa_file="./src/main/auxiliary_files/input/PSA/PSA_Alice_test.xml"
+	market_psa_file="./src/main/auxiliary_files/input/PSA/PSA_Alice_test.xml"
+	remediation_file="./src/main/auxiliary_files/output/remediation.xml"
+	content_file="./src/main/auxiliary_files/input/Content.xml"
+	subject_file="./src/main/auxiliary_files/input/Subject.xml" maxEvaluationsNo="0"
+	target_file="./src/main/auxiliary_files/input/Target.xml"></tns:configurations>
+

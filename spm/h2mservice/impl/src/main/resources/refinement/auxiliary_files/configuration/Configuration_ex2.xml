@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:configurations
+	xmlns:tns="http://www.example.org/Configurations_Schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/Configurations_Schema ../../java/schema/Configurations_Schema.xsd "
+	refinementType="Application_HSPL"
+	hspl_file="./src/main/auxiliary_files/input/HSPL/HSPL_Alice.xml"
+	optimizationType="minBuyCostmaxRating"
+	sg_input_file="./src/main/auxiliary_files/input/SG/SG_Alice2.xml"
+	sg_ouput_file="./src/main/auxiliary_files/output/SG/Alice_SG2.xml"
+	mspl_dir_output="./src/main/auxiliary_files/output/MSPL/Es2/"
+	></tns:configurations>
+

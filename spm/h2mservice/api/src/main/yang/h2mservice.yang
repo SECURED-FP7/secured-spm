@@ -1,0 +1,60 @@
+module h2mservice {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:h2mservice";
+    prefix "h2mservice";
+
+    revision "2015-01-05" {
+        description "Initial revision of h2mservice model";
+    }
+
+    //    String refinemtType, String hspl_mspl, String sPSA_SG,
+    //    String userPSA, String marketPSA, String subject_string,String content_string,
+    //    String target_string, String optimizationType_string, String maxEvaluationsNo_string
+
+    rpc h2mrefinement {
+        description "H2M refinement service";
+        input {
+            leaf refinement_type {
+                type string;
+            }
+            leaf hspl_mspl {
+                type string;
+            }
+            leaf sPSA_SG {
+                type string;
+            }
+            leaf user_PSA {
+                type string;
+            }
+            leaf market_PSA {
+                type string;
+            }
+            leaf subject_string {
+                type string;
+            }
+            leaf content_string {
+                type string;
+            }
+            leaf target_string {
+                type string;
+            }
+            leaf optimizationType_string {
+                type string;
+            }
+            leaf maxEvaluationsNo_string {
+                type string;
+            }
+        }
+        output {
+            leaf application_graph {
+                type string;
+            }
+            leaf-list MSPL {
+                type string;
+            }
+            leaf remediation {
+                type string;
+            }
+        }
+    }
+}

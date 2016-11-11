@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ITResource xmlns:ns2="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleSetConfiguration">
+        <capability xsi:type="ns2:FilteringCapability">
+            <Name>firewall</Name>
+            <stateful>true</stateful>
+            <applicationLayerFiltering>false</applicationLayerFiltering>
+            <httpFiltering>false</httpFiltering>
+            <contentInspection>false</contentInspection>
+        </capability>
+        <defaultAction xsi:type="ns2:FilteringAction">
+            <FilteringActionType>ALLOW</FilteringActionType>
+        </defaultAction>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <timeCondition>
+                    <Weekday>Mon,Tue,Wed,Thu,Fri</Weekday>
+                    <Time>9:00-13:00,15:00-18:00</Time>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>1</value>
+            </externalData>
+            <Name>parent_packetfilter_rule_1</Name>
+        </configurationRule>
+        
+    	<configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+           		<packetFilterCondition>
+                    <DestinationPort>666</DestinationPort>
+                </packetFilterCondition>
+                <timeCondition>
+                    <Weekday>Mon,Tue,Wed,Thu,Fri</Weekday>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>2</value>
+            </externalData>
+            <Name>parent_packetfilter_rule_2</Name>
+        </configurationRule>
+        
+        
+        
+        <resolutionStrategy xsi:type="ns2:FMR"/>
+        <Name>parent_packetfilter</Name>
+    </configuration>
+</ns2:ITResource>

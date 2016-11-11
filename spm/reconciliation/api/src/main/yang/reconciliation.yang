@@ -1,0 +1,182 @@
+module reconciliation {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:reconciliation";
+    prefix "reconciliation";
+
+    revision "2015-01-05" {
+        description "Initial revision of reconciliation model";
+    }
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// Reconciliation    
+//    input : {
+//     	coop : [
+//     		{"id":"1", "creator":"creator_id", "ag":"<xml>"},
+//     		{"id":"2", "creator":"creator_id", "ag":"<xml>"}
+//     	],
+//     
+//     	non_coop : [
+//     		{"id":"1", "creator":"creator_id", "ag":"<xml>"},
+//     		{"id":"2", "creator":"creator_id", "ag":"<xml>"}
+//     	],
+//     
+//     	MSPLs : ["<xml>", "<xml>", "<xml>"]
+//     }
+//
+//    	output : {
+//    	   MSPLs : ["<xml>", "<xml>", "<xml>"],
+//    	   application_graph : "<xml>",
+//    	   report : "<html>"
+//    	}
+
+    rpc reconciliation {
+        description "Reconciliation service";
+        input {
+        	list coop {
+    	        key id;
+    	        ordered-by user;
+    	        leaf id {
+    	        	type string;
+    	        }
+    	        leaf creator {
+    	        	type string;
+    	        }
+    	        leaf ag {
+    	        	type string;
+    	        }
+            }
+        	list non_coop {
+        		key id;
+    	        ordered-by user;
+    	        leaf id {
+    	        	type string;
+    	        }
+    	        leaf creator {
+    	        	type string;
+    	        }
+    	        leaf ag {
+    	        	type string;
+    	        }
+            }
+        	leaf-list MSPL {
+                type string;
+                ordered-by user;
+            }
+        }
+
+        output {
+            leaf-list MSPL {
+                type string;
+                ordered-by user;
+            }
+            leaf application_graph {
+                type string;
+            }
+            leaf report {
+                type string;
+            }
+        }
+    }
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// multi-user-conflict-analysis
+//    "input": {
+// 		 "coop": [
+// 	 		{"id":"1", "creator":"creator_id", "ag":"<xml>"},
+// 	 		{"id":"2", "creator":"creator_id", "ag":"<xml>"}
+// 	 	  ],
+// 	 
+// 	 	MSPLs : ["<xml>", "<xml>", "<xml>"]
+//    }
+//    
+//    "output": {
+//        "report": ""
+//    }
+    
+    rpc muca {
+        description "multi-user-conflict-analysis service";
+        input {
+        	list coop {
+        		key id;
+    	        ordered-by user;
+    	        leaf id {
+    	        	type string;
+    	        }
+    	        leaf creator {
+    	        	type string;
+    	        }
+    	        leaf ag {
+    	        	type string;
+    	        }
+            }
+        	leaf-list MSPL {
+                type string;
+                ordered-by user;
+            }
+        }
+
+        output {
+            leaf report {
+                type string;
+            }
+        }
+    }   
+
+//  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//  single-user-conflict-analysis of one policy
+//     "input": {
+//         "MSPL": ""
+//     }
+//     
+//     "output": {
+//         "report": ""
+//     }
+    rpc sucas {
+        description "single-user-conflict-analysis of one policy";
+        input {
+        	leaf MSPL {
+                type string;
+            }
+        }
+
+        output {
+            leaf report {
+                type string;
+            }
+        }
+    } 
+
+//  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//  single-user-conflict-analysis of all policies
+//     "input": {
+//		 	MSPLs : [
+//				{"id":"1" "mspl":"<xml>"}, 
+//				{"id":"2" "mspl":"<xml>"},
+//				{"id":"3" "mspl":"<xml>"}
+//            ]
+//     }
+//     
+//     "output": {
+//         "report": ""
+//     }
+    rpc sucad {
+        description "single-user-conflict-analysis of all policies";
+        input {
+        	list MSPL {
+        		key id;
+    	        ordered-by user;
+    	        leaf id {
+    	        	type string;
+    	        }
+    	        leaf mspl {
+    	        	type string;
+    	        }
+            }
+        }
+
+        output {
+            leaf report {
+                type string;
+            }
+        }
+    } 
+}

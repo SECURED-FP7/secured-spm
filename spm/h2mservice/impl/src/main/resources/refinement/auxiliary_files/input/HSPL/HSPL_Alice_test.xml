@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Mapping xmlns:tns="http://www.example.org/Refinement_Schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Refinement_Schema Refinement_Schema.xsd ">
+  <tns:hspl_list>
+    <tns:hspl subject="Alice" id="HSPL0" >
+      <tns:action>no_authorise_access</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+      <tns:fields>
+          <tns:time_period time-zone="UTC">
+          <tns:interval_time >
+            <tns:week_day>Mon</tns:week_day>
+            <tns:week_day>Tue</tns:week_day>
+            <tns:week_day>Wed</tns:week_day>
+            <tns:week_day>Thu</tns:week_day>
+            <tns:week_day>Fri</tns:week_day>
+            <tns:time_hours end-time="18:00:00" start-time="08:00:00"/>
+          </tns:interval_time>
+        </tns:time_period>
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+      <tns:hspl subject="Alice" id="HSPL1">
+      <tns:action>no_authorise_access</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+      <tns:fields>
+       <tns:type_content>
+          <tns:content_name>illegal_websites </tns:content_name>
+        </tns:type_content> 
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+ 
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+    
+     <tns:hspl subject="Alice" id="HSPL2">
+      <tns:action>no_authorise_access</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+      <tns:fields>
+      <tns:specific_URL>
+          <tns:URL>www.black_site.com</tns:URL>
+          <tns:URL>www.illegal_websites.com</tns:URL>
+        </tns:specific_URL>
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+      <tns:hspl subject="Alice" id="HSPL3">
+      <tns:action>enable</tns:action>
+      <tns:objectH>advance_parental_control</tns:objectH>
+       <tns:fields>
+      </tns:fields>
+        <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    <tns:hspl subject="Alice" id="HSPL4">
+      <tns:action>enable</tns:action>
+      <tns:objectH>antivirus</tns:objectH>
+        <tns:fields>
+      </tns:fields>
+        <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+    
+      <tns:hspl subject="Bob" id="HSPL5">
+      <tns:action>no_authorise_access</tns:action>
+      <tns:objectH>VoIP_traffic</tns:objectH>
+      <tns:fields>
+      <tns:time_period time-zone="UTC">
+          <tns:interval_time >
+            <tns:week_day>Mon</tns:week_day>
+            <tns:week_day>Tue</tns:week_day>
+            <tns:week_day>Wed</tns:week_day>
+            <tns:week_day>Thu</tns:week_day>
+            <tns:week_day>Fri</tns:week_day>
+            <tns:time_hours end-time="18:00:00" start-time="08:00:00"/>
+          </tns:interval_time>
+        </tns:time_period>
+          <tns:traffic_target>
+          <tns:target_name>Polito</tns:target_name>
+        </tns:traffic_target>
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+     <tns:hspl subject="Alice" id="HSPL6">
+      <tns:action>prot_conf_integr</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+        <tns:fields>
+      </tns:fields>
+        <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+    
+  </tns:hspl_list>
+</tns:Mapping>

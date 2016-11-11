@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_06ad8ea7-3539-447b-b0c4-c8c3bc211b7d">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>antiPhishing</Name>
+        </capability>
+        <defaultAction xsi:type="EnableAction">
+            <EnableActionType enable="true" objectToEnable="ANTI_PHISHING"/>
+        </defaultAction>
+        <configurationRule>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="HSPL7_Son_ISP" HSPL_text="son enable anti_phishing "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_06ad8ea7-3539-447b-b0c4-c8c3bc211b7d</Name>
+    </configuration>
+</ITResource>

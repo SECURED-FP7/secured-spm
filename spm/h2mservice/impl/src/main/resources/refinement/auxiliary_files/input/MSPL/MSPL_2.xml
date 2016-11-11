@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ITResource xmlns:ns2="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_2">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleSetConfiguration">
+        <capability>
+            <Name>Advanced_parental_control</Name>
+        </capability>
+        <defaultAction xsi:type="ns2:EnableAction">
+            <EnableActionType enable="true" objectToEnable="PSA5"/>
+        </defaultAction>
+        <resolutionStrategy xsi:type="ns2:FMR"/>
+        <Name>MSPL_2</Name>
+    </configuration>
+</ns2:ITResource>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Mapping xmlns:tns="http://www.example.org/Refinement_Schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Refinement_Schema Refinement_Schema.xsd ">
+
+  
+ 
+  <tns:psa_list>
+    <tns:psa  name="T1">
+      <tns:PSA_info />
+      <tns:PSA_characteristic />
+      <tns:capability>
+        <tns:capability_list>Timing</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+     <tns:psa  name="T2">
+      <tns:PSA_info />
+      <tns:PSA_characteristic />
+      <tns:capability>
+        <tns:capability_list>Timing</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    <tns:psa  name="F4_1">
+      <tns:PSA_info />
+      <tns:PSA_characteristic />
+      <tns:capability>
+        <tns:capability_list>Filtering_L4</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+     <tns:psa  name="F4_2">
+      <tns:PSA_info />
+      <tns:PSA_characteristic />
+      <tns:capability>
+        <tns:capability_list>Filtering_L4</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+   <tns:psa  name="F7_1">
+      <tns:PSA_info />
+      <tns:PSA_characteristic />
+      <tns:capability>
+        <tns:capability_list>Filtering_L7</tns:capability_list>
+      </tns:capability>
+    </tns:psa> 
+   
+    
+  </tns:psa_list>
+</tns:Mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Mapping xmlns:tns="http://www.example.org/Refinement_Schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Refinement_Schema Refinement_Schema.xsd ">
+  <tns:hspl_list>
+    <tns:hspl subject="Alice" id="HSPL0" >
+      <tns:action>authorise_access</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+      <tns:fields>
+          <tns:time_period time-zone="">
+          <tns:interval_time end-time="12:00:00" start-time="12:00:00">
+            <tns:week_day>Mon</tns:week_day>
+          </tns:interval_time>
+        </tns:time_period>
+         <tns:type_content>
+          <tns:content_name>Family OK</tns:content_name>
+        </tns:type_content> 
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+      <tns:hspl subject="Bob" id="HSPL1">
+      <tns:action>authorise_access</tns:action>
+      <tns:objectH>Internet_traffic</tns:objectH>
+      <tns:fields>
+        <tns:time_period time-zone="">
+          <tns:interval_time end-time="20:00:00" start-time="18:00:00"/>
+        </tns:time_period>
+       <tns:type_content>
+          <tns:content_name>Family OK</tns:content_name>
+        </tns:type_content> 
+      </tns:fields>
+      <tns:capabilities>
+      </tns:capabilities>
+      <tns:candidates>
+      </tns:candidates>
+      <tns:suitableImplementation>
+     
+      </tns:suitableImplementation>
+    </tns:hspl>
+    
+  </tns:hspl_list>
+</tns:Mapping>

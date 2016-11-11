@@ -1,0 +1,12 @@
+{
+  "default": {
+    "keyexchange": "ikev2"
+  },
+  "psa": {
+    "leftfirewall": "yes",
+    "auto": "add",
+    "left": "",
+    "rightsubnet": "0.0.0.0/0",
+    "right": "1.1.1.1"
+  }
+}

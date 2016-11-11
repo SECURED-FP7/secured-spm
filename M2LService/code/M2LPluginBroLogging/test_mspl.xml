@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_53b43891-7eb0-4a30-bb8a-14d297eb58eb">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>Logging</Name>
+        </capability>
+        <defaultAction xsi:type="LoggingAction">
+            <loggingActionType>log_connection</loggingActionType>
+        </defaultAction>
+        <configurationRule>
+            <configurationCondition xsi:type="LoggingCondition">
+                <isCNF>false</isCNF>
+                <eventCondition>
+                    <events>EVENT_CONNECTION</events>
+                    <interval>30</interval>
+                    <threshold>50</threshold>
+                </eventCondition>
+                <packetCondition>
+                    <SourceAddress>123.45.67.89-123.45.67.91</SourceAddress>
+                </packetCondition>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl919" HSPL_text="test2 enable logging count_connection,  vtt_address,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_53b43891-7eb0-4a30-bb8a-14d297eb58eb</Name>
+    </configuration>
+</ITResource>

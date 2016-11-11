@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Mapping xmlns:tns="http://www.example.org/Refinement_Schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Refinement_Schema Refinement_Schema.xsd ">
+  
+  <tns:psa_list>
+    <tns:psa  name="PSA1">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="2" latency="0.3" rating="4" />
+      <tns:capability>
+        <tns:capability_list>Filtering_L4</tns:capability_list>
+        <tns:capability_list>Timing</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+     <tns:psa  name="PSA2">
+      <tns:PSA_info />
+ <tns:PSA_characteristic cost="2" latency="0.2" rating="3"  />
+       <tns:capability>
+        <tns:capability_list>Filtering_L7</tns:capability_list>
+        <tns:capability_list>TrafficInspection_L7</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+      <tns:psa  name="PSA3">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="1" latency="0.2" rating="5" />
+      <tns:capability>
+        <tns:capability_list>Filtering_L4</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+      <tns:psa  name="PSA4">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="1" latency="0.2" rating="3" />
+      <tns:capability>
+        <tns:capability_list>Basic_parental_control</tns:capability_list>
+      </tns:capability>
+          </tns:psa>
+      
+      <tns:psa  name="PSA5">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="5" latency="0.6" rating="5" />
+      <tns:capability>
+        <tns:capability_list>Advanced_parental_control</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+      
+      <tns:psa  name="PSA6">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="1" latency="0.2" rating="5" />
+      <tns:capability>
+        <tns:capability_list>Online_antivirus_analysis</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+    <tns:psa  name="PSA7">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="1" latency="0.2" rating="5" />
+      <tns:capability>
+        <tns:capability_list>Filtering_L4</tns:capability_list>
+        <tns:capability_list>Timing</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+      <tns:psa  name="PSA8">
+      <tns:PSA_info />
+      <tns:PSA_characteristic cost="10" latency="0.6" rating="5" />
+      <tns:capability>
+        <tns:capability_list>Advanced_parental_control</tns:capability_list>
+      </tns:capability>
+    </tns:psa>
+    
+    
+     <tns:psa  name="PSA9">
+      <tns:PSA_info />
+ <tns:PSA_characteristic cost="2" latency="0.2" rating="3"  />
+       <tns:capability>
+        <tns:capability_list>Protection_confidentiality</tns:capability_list>
+        <tns:capability_list>Protection_integrity</tns:capability_list>
+        <tns:capability_list>IPSec_protocol</tns:capability_list>
+        
+      </tns:capability>
+    </tns:psa>
+    
+  </tns:psa_list>
+</tns:Mapping>

@@ -1,0 +1,21 @@
+{
+  "default": {
+    "keyexchange": "ikev2",
+    "rekeymargin": "3m",
+    "keyingtries": "3",
+    "ikelifetime": "60m"
+  },
+  "psa": {
+    "rightsubnet": "0.0.0.0/0",
+    "leftfirewall": "yes",
+    "leftsourceip": "%config",
+    "auto": "add",
+    "left": "%any",
+    "leftsubnet": "10.2.2.0/16",
+    "leftcert": "ClientCert.pem",
+    "rightid": "@vpn.secured.eu",
+    "leftid": "psa@secured.eu",
+    "right": "147.83.42.207"
+  }
+}
+

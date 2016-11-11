@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource
+	xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd"
+	ID="MSPL_e7dd2f78-69ce-4196-9776-8d235cd276d1">
+	<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:type="RuleSetConfiguration">
+		<capability>
+			<Name>Filtering_L7</Name>
+		</capability>
+		<defaultAction xsi:type="FilteringAction">
+			<FilteringActionType>ALLOW</FilteringActionType>
+		</defaultAction>
+		<configurationRule>
+			<configurationRuleAction xsi:type="FilteringAction">
+				<FilteringActionType>DENY</FilteringActionType>
+			</configurationRuleAction>
+			<configurationCondition xsi:type="FilteringConfigurationCondition">
+				<isCNF>false</isCNF>
+				<packetFilterCondition>
+					<SourceAddress>0.0.0.0/0.0.0.0,</SourceAddress>
+				</packetFilterCondition>
+				<applicationLayerCondition>
+					<URL>ITResource:URL</URL>
+					<httpCondition>
+						<httpMetod>ITResource:httpMetod</httpMetod>
+						<browser>ITResource:browser</browser>
+						<user_cert>ITResource:user_cert</user_cert>
+						<ca_cert>ITResource:ca_cert</ca_cert>
+						<request_mime_type>ITResource:request_mime_type</request_mime_type>
+						<response_mime_type>ITResource:response_mime_type</response_mime_type>
+						<http_regex_header>ITResource:http_regex_header</http_regex_header>
+						<http_status>ITResource:http_status</http_status>
+					</httpCondition>
+					<fileExtension>ITResource:fileExtension</fileExtension>
+					<mimeType>ITResource:mimeType</mimeType>
+					<maxconn>0</maxconn>
+					<dst_domain>ITResource:dst_domain</dst_domain>
+					<src_domain>ITResource:src_domain</src_domain>
+					<URL_regex>ITResource:URL_regex</URL_regex>
+				</applicationLayerCondition>
+			</configurationCondition>
+			<externalData xsi:type="Priority">
+				<value>0</value>
+			</externalData>
+			<Name>Rule0</Name>
+			<isCNF>false</isCNF>
+			<HSPL HSPL_id="hspl48"
+				HSPL_text="alice no_authorise_access internet_traffic gambling,  " />
+		</configurationRule>
+		<configurationRule>
+			<configurationRuleAction xsi:type="FilteringAction">
+				<FilteringActionType>DENY</FilteringActionType>
+			</configurationRuleAction>
+			<configurationCondition xsi:type="FilteringConfigurationCondition">
+				<isCNF>false</isCNF>
+				<packetFilterCondition>
+					<SourceAddress>0.0.0.0/0.0.0.0,</SourceAddress>
+				</packetFilterCondition>
+				<applicationLayerCondition>
+					<URL>chat-paradise.com,chat.free.fr,chat.gratis.es,</URL>
+				</applicationLayerCondition>
+			</configurationCondition>
+			<externalData xsi:type="Priority">
+				<value>1</value>
+			</externalData>
+			<Name>Rule1</Name>
+			<isCNF>false</isCNF>
+			<HSPL HSPL_id="hspl49"
+				HSPL_text="alice no_authorise_access internet_traffic chat_room,  " />
+		</configurationRule>
+		<configurationRule>
+			<configurationRuleAction xsi:type="FilteringAction">
+				<FilteringActionType>DENY</FilteringActionType>
+			</configurationRuleAction>
+			<configurationCondition xsi:type="FilteringConfigurationCondition">
+				<isCNF>false</isCNF>
+				<packetFilterCondition>
+					<SourceAddress></SourceAddress>
+				</packetFilterCondition>
+				<applicationLayerCondition>
+					<URL_regex>\.tar.gz$,\.tar$,\.zip$,\.exe$,\.iso$,</URL_regex>
+				</applicationLayerCondition>
+			</configurationCondition>
+			<externalData xsi:type="Priority">
+				<value>3</value>
+			</externalData>
+			<Name>Rule3</Name>
+			<isCNF>false</isCNF>
+			<HSPL HSPL_id="HSPL3_Father_Father"
+				HSPL_text="father no_authorise_access internet_traffic file_threats,  " />
+		</configurationRule>
+		<resolutionStrategy xsi:type="FMR" />
+		<Name>MSPL_e7dd2f78-69ce-4196-9776-8d235cd276d1</Name>
+	</configuration>
+</ITResource>

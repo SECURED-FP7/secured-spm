@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ITResource xmlns:ns2="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleSetConfiguration">
+        <capability xsi:type="ns2:FilteringCapability">
+            <Name>iptables</Name>
+            <stateful>true</stateful>
+            <applicationLayerFiltering>false</applicationLayerFiltering>
+            <httpFiltering>false</httpFiltering>
+            <contentInspection>false</contentInspection>
+        </capability>
+        <defaultAction xsi:type="ns2:FilteringAction">
+            <FilteringActionType>DENY</FilteringActionType>
+        </defaultAction>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.60</DestinationAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1_1</Name>
+        </configurationRule>
+        
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.61</DestinationAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>2</value>
+            </externalData>
+            <Name>Rule2_1</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.62</DestinationAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>3</value>
+            </externalData>
+            <Name>Rule3_1</Name>
+        </configurationRule>
+        
+        
+        <resolutionStrategy xsi:type="ns2:FMR"/>
+        <Name>TestConf1</Name>
+    </configuration>
+</ns2:ITResource>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+SECURED
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<features name="odl-singleuserconflictanalysis-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+  <repository>mvn:org.opendaylight.yangtools/features-yangtools/${yangtools.version}/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-mdsal/${mdsal.version}/xml/features</repository>
+  <repository>mvn:org.opendaylight.controller/features-restconf/${mdsal.version}/xml/features</repository>
+  <feature name='odl-singleuserconflictanalysis-api' version='${project.version}' description='OpenDaylight :: singleuserconflictanalysis :: api'>
+    <feature version='${yangtools.version}'>odl-yangtools-models</feature>
+    <bundle>mvn:eu.fp7.secured.spm/singleuserconflictanalysis-api/${project.version}</bundle>
+  </feature>
+  <feature name='odl-singleuserconflictanalysis' version='${project.version}' description='OpenDaylight :: singleuserconflictanalysis'>
+    <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
+    <feature version='${project.version}'>odl-singleuserconflictanalysis-api</feature>
+    <bundle>wrap:mvn:jgraph/jgraph/5.13.0.0</bundle>
+    <bundle>wrap:mvn:org.jgrapht/jgrapht-core/0.9.0</bundle>
+    <bundle>mvn:eu.fp7.secured.spm/singleuserconflictanalysis-impl/${project.version}</bundle>
+    <configfile finalname="${configfile.directory}/singleuserconflictanalysis.xml">mvn:eu.fp7.secured.spm/singleuserconflictanalysis-impl/${project.version}/xml/config</configfile>
+  </feature>
+  <feature name='odl-singleuserconflictanalysis-rest' version='${project.version}' description='OpenDaylight :: singleuserconflictanalysis :: REST'>
+    <feature version="${project.version}">odl-singleuserconflictanalysis</feature>
+    <feature version="${mdsal.version}">odl-restconf</feature>
+  </feature>
+  <feature name='odl-singleuserconflictanalysis-ui' version='${project.version}' description='OpenDaylight :: singleuserconflictanalysis :: UI'>
+    <feature version="${project.version}">odl-singleuserconflictanalysis-rest</feature>
+    <feature version="${mdsal.version}">odl-mdsal-apidocs</feature>
+    <feature version="${mdsal.version}">odl-mdsal-xsql</feature>
+  </feature>
+
+</features>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_df7bb7f1-d329-40b4-af20-8c0de5e96277">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>Reduce_bandwidth</Name>
+        </capability>
+        <defaultAction xsi:type="ReduceBandwidthAction">
+            <ReduceBandwidthActionType downlink_bandwidth_value="0.0" uplink_bandwidth_value="0.0"/>
+        </defaultAction>
+        <configurationRule>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="HSPL6_Son_ISP" HSPL_text="son reduce bandwidth 0.0 0.0 "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_df7bb7f1-d329-40b4-af20-8c0de5e96277</Name>
+    </configuration>
+</ITResource>

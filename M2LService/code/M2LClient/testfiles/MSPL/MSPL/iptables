@@ -1,0 +1,12 @@
+*filter
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+-A FORWARD -p TCP -d  130.192.225.238 -m multiport --dports 53,5353 -j ACCEPT
+-A FORWARD -p UDP -d  130.192.225.238 -m multiport --dports 53,5353 -j ACCEPT
+-A FORWARD -p TCP -m multiport --dports 53,5353 -j DROP
+-A FORWARD -p UDP -m multiport --dports 53,5353 -j DROP
+-A FORWARD -p TCP -d  77.242.188.42 -j DROP
+-A FORWARD -p UDP -d  77.242.188.42 -j DROP
+COMMIT
+

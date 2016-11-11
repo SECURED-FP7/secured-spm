@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Mapping xmlns="http://www.example.org/Refinement_Schema">
+    <service_graph>
+        <service serviceID="idvalue0">
+            <PSA name="PSA1">
+                <PSA_info/>
+                <PSA_characteristic cost="2.0" latency="0.3" rating="4.0"/>
+                <capability>
+                    <capability_list>Filtering_L4</capability_list>
+                    <capability_list>Timing</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <service serviceID="idvalue1">
+            <PSA name="PSA2">
+                <PSA_info/>
+                <PSA_characteristic cost="2.0" latency="0.2" rating="3.0"/>
+                <capability>
+                    <capability_list>Filtering_L7</capability_list>
+                    <capability_list>TrafficInspection_L7</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <service serviceID="idvalue2">
+            <PSA name="PSA5">
+                <PSA_info/>
+                <PSA_characteristic cost="5.0" latency="0.6" rating="5.0"/>
+                <capability>
+                    <capability_list>Advanced_parental_control</capability_list>
+                </capability>
+            </PSA>
+            <capability>Advanced_parental_control</capability>
+        </service>
+        <service serviceID="idvalue3">
+            <PSA name="PSA6">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="0.2" rating="5.0"/>
+                <capability>
+                    <capability_list>Online_antivirus_analysis</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <rootService>idvalue0</rootService>
+        <endService>idvalue3</endService>
+        <edge>
+            <src_Service>idvalue0</src_Service>
+            <dst_Service>idvalue1</dst_Service>
+            <networkFields/>
+        </edge>
+        <edge>
+            <src_Service>idvalue1</src_Service>
+            <dst_Service>idvalue2</dst_Service>
+            <networkFields/>
+        </edge>
+        <edge>
+            <src_Service>idvalue2</src_Service>
+            <dst_Service>idvalue3</dst_Service>
+            <networkFields/>
+        </edge>
+    </service_graph>
+</Mapping>

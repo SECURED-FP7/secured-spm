@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_f5d2c672-62a4-4083-b776-85170bfb01b3">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>Advanced_parental_control</Name>
+        </capability>
+        <defaultAction xsi:type="ParentalControlAction">
+            <EnableActionType enable="true" objectToEnable="dansguardian"/>
+            <pics>
+                <ICRA ICRAchat="false" ICRAlanguagesexual="false" ICRAnuditygraphic="false" ICRAnuditytopless="false" ICRAnuditybottoms="false" ICRAdrugsuse="false" ICRAdrugsalcohol="false" ICRAviolencetofantasy="false"/>
+                <RSAC RSACviolence="2" RSACsex="2" RSACnudity="2" RSAClanguage="2"/>
+                <evaluWEB>1</evaluWEB>
+                <CyberNOTsex>3</CyberNOTsex>
+                <Weburbia>1</Weburbia>
+                <Vancouver Vancouvereducationalcontent="0" Vancouverviolence="0" Vancouversex="0" Vancouverprofanity="0" Vancouvergambling="0"/>
+                <SafeNet SafeSurfprofanity="3" SafeSurfheterosexualthemes="3" SafeSurfhomosexualthemes="3" SafeSurfviolence="3" SafeSurfdruguse="3" SafeSurfotheradultthemes="3" SafeSurfgambling="3"/>
+            </pics>
+        </defaultAction>
+        <configurationRule>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl56" HSPL_text="son enable advance_parental_control adolescent,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_f5d2c672-62a4-4083-b776-85170bfb01b3</Name>
+    </configuration>
+</ITResource>

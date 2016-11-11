@@ -1,0 +1,523 @@
+/**********************************************************************************************
+ * Copyright (c) 2016 Politecnico di Torino.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Contributors:
+ *   - POLITO TorSec Team: Fulvio Valenza, Christian Pitscheider, Cataldo Basile, Marco Vallini 
+ *	 - SECURED Team 
+ *	 - Corresponding: fulvio.valenza@polito.it, cataldo.basile@polito.it
+ ************************************************************************************************/
+package rule
+
+import main.java.hspl_class.*;
+
+rule "Time Capability"
+    when
+       h : Hspl(h.getFields().getTimePeriod()!=null && !h.getCapabilities().getCapabilityList().contains(Capability.TIMING)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.TIMING);
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.TIMING);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+       
+end
+
+
+
+rule "L4 filtering Capability - Traffic traget"
+    when
+        h : Hspl(h.getFields().getTrafficTarget()!=null && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_4) &&
+                 !h.getObjectH().equals(ObjectH.LOGGING)  && !h.getAction().equals(Action.PROT_CONF) &&
+	!h.getAction().equals(Action.PROT_INTEGR) && !h.getAction().equals(Action.PROT_CONF_INTEGR) ) 
+    then
+	h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_4);
+	
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_4);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "L7 filtering Capability - Specific URL"
+    when
+        h : Hspl(h.getFields().getSpecificURL()!=null && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7)
+                  && !h.getObjectH().equals(ObjectH.LOGGING)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_7);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+        
+       update( h );
+end
+
+rule "L7 traffic ispection Capability - Type content "
+    when
+		h : Hspl(h.getFields().getTypeContent()!=null && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7)
+	&& !h.getObjectH().equals(ObjectH.MALWARE_DETECTION) && !h.getAction().equals(Action.PROT_CONF) &&
+	!h.getAction().equals(Action.PROT_INTEGR) && !h.getAction().equals(Action.PROT_CONF_INTEGR)
+	&& !h.getObjectH().equals(ObjectH.ADVANCE_PARENTAL_CONTROL) && !h.getObjectH().equals(ObjectH.LOGGING) )
+     then
+	//h.getCapabilities().getCapabilityList().add(Capability.TRAFFIC_INSPECTION_L_7);
+	h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		SuitablePSA e=new SuitablePSA();
+		//e.setCapability(Capability.TRAFFIC_INSPECTION_L_7);
+		e.setCapability(Capability.FILTERING_L_7);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+        
+	 update( h );
+end
+
+
+rule "Resurce access Capability"
+    when
+        h : Hspl(h.getObjectH().equals(ObjectH.RESOURCE) && !h.getCapabilities().getCapabilityList().contains(Capability.AUTHORISE_ACCESS_RESURCE)) 
+    then
+	h.getCapabilities().getCapabilityList().add(Capability.AUTHORISE_ACCESS_RESURCE);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.AUTHORISE_ACCESS_RESURCE);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+        
+	       update( h );
+end
+
+rule "Bandwidth Capability"
+    when
+        h : Hspl(h.getObjectH().equals(ObjectH.BANDWIDTH) && !h.getCapabilities().getCapabilityList().contains(Capability.REDUCE_BANDWIDTH)) 
+    then
+	h.getCapabilities().getCapabilityList().add(Capability.REDUCE_BANDWIDTH);
+	SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.REDUCE_BANDWIDTH);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "Confidentiality Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.PROT_CONF) && !h.getCapabilities().getCapabilityList().contains(Capability.PROTECTION_CONFIDENTIALITY)) 
+    then
+			h.getCapabilities().getCapabilityList().add(Capability.PROTECTION_CONFIDENTIALITY);
+			SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.PROTECTION_CONFIDENTIALITY);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule "Integrity Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.PROT_INTEGR) && !h.getCapabilities().getCapabilityList().contains(Capability.PROTECTION_INTEGRITY)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.PROTECTION_INTEGRITY);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.PROTECTION_INTEGRITY);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "Confidentiality and Integrity Capability- Integrity"
+    when
+        h : Hspl(h.getAction().equals(Action.PROT_CONF_INTEGR) && !h.getCapabilities().getCapabilityList().contains(Capability.PROTECTION_INTEGRITY)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.PROTECTION_INTEGRITY);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.PROTECTION_INTEGRITY);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+	       update( h );
+end
+
+rule "Confidentiality and Integrity Capability-Confidentiality"
+    when
+        h : Hspl(h.getAction().equals(Action.PROT_CONF_INTEGR) &&  !h.getCapabilities().getCapabilityList().contains(Capability.PROTECTION_CONFIDENTIALITY)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.PROTECTION_CONFIDENTIALITY);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.PROTECTION_CONFIDENTIALITY);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+
+rule "Compress Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.COMPRESS) && !h.getCapabilities().getCapabilityList().contains(Capability.COMPRESS)) 
+    then
+			h.getCapabilities().getCapabilityList().add(Capability.COMPRESS);
+			SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.COMPRESS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "Count Connection Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.COUNT) && h.getCapabilities().getCapabilityList().contains(Capability.COUNT_L_4_CONNECTION)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.COUNT_L_4_CONNECTION);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.COUNT_L_4_CONNECTION);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "Count DNS traffic Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.COUNT) && h.getObjectH().equals(ObjectH.DNS_TRAFFIC) && !h.getCapabilities().getCapabilityList().contains(Capability.COUNT_DNS)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.COUNT_DNS);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.COUNT_DNS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+      	update( h );
+end
+
+
+rule "Security Status Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.CHECK_OVER) && h.getObjectH().equals(ObjectH.SECURITY_STATUS) && !h.getCapabilities().getCapabilityList().contains(Capability.ONLINE_SECURITY_ANALYZER)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.ONLINE_SECURITY_ANALYZER);	
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ONLINE_SECURITY_ANALYZER);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+      	update( h );
+end
+
+
+rule "Removes Advertisement Capability "
+    when
+        h : Hspl(h.getAction().equals(Action.REMOVE) && h.getObjectH().equals(ObjectH.ADVERTISEMENT) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_7);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+      	update( h );
+end
+
+rule "Removes Tracking techniques Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.REMOVE) && h.getObjectH().equals(ObjectH.TACKING_TECHNIQUES) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_7);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+      	update( h );
+end
+
+
+rule "Log Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.LOGGING) && !h.getCapabilities().getCapabilityList().contains(Capability.LOGGING)) 
+    then
+   h.getCapabilities().getCapabilityList().add(Capability.LOGGING);
+   SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.LOGGING);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule "antiPhishing Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.ANTI_PHISHING) 
+        && !h.getCapabilities().getCapabilityList().contains(Capability.ANTI_PHISHING)) 
+    then
+  	 	h.getCapabilities().getCapabilityList().add(Capability.ANTI_PHISHING);
+   		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ANTI_PHISHING);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "IDS_IPS Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.IDS_IPS) && !h.getCapabilities().getCapabilityList().contains(Capability.NETWORK_TRAFFIC_ANALYSIS)) 
+    then
+   h.getCapabilities().getCapabilityList().add(Capability.NETWORK_TRAFFIC_ANALYSIS);
+   SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.NETWORK_TRAFFIC_ANALYSIS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule " DDos Attack Protection Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.D_DOS_ATTACK_PROTECTION) && !h.getCapabilities().getCapabilityList().contains(Capability.D_DOS_ATTACK_PROTECTION)) 
+    then
+   h.getCapabilities().getCapabilityList().add(Capability.D_DOS_ATTACK_PROTECTION);
+   SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.D_DOS_ATTACK_PROTECTION);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule " Lawful Interception Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.LAWFUL_INTERCEPTION) && !h.getCapabilities().getCapabilityList().contains(Capability.LAWFUL_INTERCEPTION)) 
+    then
+   h.getCapabilities().getCapabilityList().add(Capability.LAWFUL_INTERCEPTION);
+   SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.LAWFUL_INTERCEPTION);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule " Basic Parental Control Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.BASIC_PRARENTAL_CONTROL) && !h.getCapabilities().getCapabilityList().contains(Capability.BASIC_PARENTAL_CONTROL)
+) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.BASIC_PARENTAL_CONTROL);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.BASIC_PARENTAL_CONTROL);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule " Advance Parental Control Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.ADVANCE_PARENTAL_CONTROL) && !h.getCapabilities().getCapabilityList().contains(Capability.ADVANCED_PARENTAL_CONTROL)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.ADVANCED_PARENTAL_CONTROL);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ADVANCED_PARENTAL_CONTROL);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule " Offline Malware Analysis Capability"
+    when
+          h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.MALWARE_DETECTION) && !h.getCapabilities().getCapabilityList().contains(Capability.OFFLINE_MALWARE_ANALYSIS)
+) 
+
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.OFFLINE_MALWARE_ANALYSIS);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.OFFLINE_MALWARE_ANALYSIS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule " Online SPAM Analysis Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.EMAIL_SCANNING) && !	h.getCapabilities().getCapabilityList().contains(Capability.ONLINE_SPAM_ANALYSIS)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.ONLINE_SPAM_ANALYSIS);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ONLINE_SPAM_ANALYSIS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule " ANONIMITY "
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.ANONIMITY) && !	
+        h.getCapabilities().getCapabilityList().contains(Capability.ANONIMITY)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.ANONIMITY);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ANONIMITY);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule " Online Antivirus Analysis Capability"
+    when
+        h : Hspl(h.getAction().equals(Action.ENABLE) && h.getObjectH().equals(ObjectH.ANTIVIRUS) && !	h.getCapabilities().getCapabilityList().contains(Capability.ONLINE_ANTIVIRUS_ANALYSIS)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.ONLINE_ANTIVIRUS_ANALYSIS);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.ONLINE_ANTIVIRUS_ANALYSIS);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+
+rule "L4Filtering- VOIP "
+    when
+        h : Hspl(( h.getAction().equals(Action.NO_AUTHORISE_ACCESS) || h.getAction().equals(Action.AUTHORISE_ACCESS)) && h.getObjectH().equals(ObjectH.VO_IP_TRAFFIC) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_4)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_4);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_4);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+
+
+
+rule "L7Filtering- P2P "
+    when
+        h : Hspl(( h.getAction().equals(Action.NO_AUTHORISE_ACCESS) || h.getAction().equals(Action.AUTHORISE_ACCESS)) && h.getObjectH().equals(ObjectH.P_2_P_TRAFFIC) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_7);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_7);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule "L7Filtering- DNS "
+    when
+        h : Hspl(( h.getAction().equals(Action.NO_AUTHORISE_ACCESS) || h.getAction().equals(Action.AUTHORISE_ACCESS)) && h.getObjectH().equals(ObjectH.DNS_TRAFFIC) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_4)) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_4);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_4);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+
+rule "T3G4G Filtering- 3G4G "
+    when
+        h : Hspl(( h.getAction().equals(Action.NO_AUTHORISE_ACCESS) || h.getAction().equals(Action.AUTHORISE_ACCESS)) && h.getObjectH().equals(ObjectH.T_3_G_4_G_TRAFFIC) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_3_G_4_G))
+		then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_3_G_4_G);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_3_G_4_G);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+rule "L4Filtering- Internet, Intranet and All traffic  "
+    when
+        h : Hspl(( h.getAction().equals(Action.NO_AUTHORISE_ACCESS) || h.getAction().equals(Action.AUTHORISE_ACCESS)) && (h.getObjectH().equals(ObjectH.INTERNET_TRAFFIC) || h.getObjectH().equals(ObjectH.INTRANET_TRAFFIC)|| h.getObjectH().equals(ObjectH.ALL_TRAFFIC) )&& (!h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_4) && !h.getCapabilities().getCapabilityList().contains(Capability.FILTERING_L_7))) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.FILTERING_L_4);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.FILTERING_L_4);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "Renc"
+    when
+        h : Hspl( 
+        		( h.getAction().equals(Action.PROT_CONF) || h.getAction().equals(Action.PROT_INTEGR) || h.getAction().equals(Action.PROT_CONF_INTEGR)) 
+        		 && 
+        		 (!h.getCapabilities().getCapabilityList().contains(Capability.REENCRYPT))
+        		 &&
+        		 ( h.getFields().getTypeContent()!=null)
+        		 ) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.REENCRYPT);
+		
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.REENCRYPT);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+
+rule "IPSEC-remove"
+    when
+        h : Hspl( 
+        		( h.getAction().equals(Action.PROT_CONF) || h.getAction().equals(Action.PROT_INTEGR) || h.getAction().equals(Action.PROT_CONF_INTEGR)) 
+        		 && 
+        		 (	!h.getCapabilities().getCapabilityList().contains(Capability.IP_SEC_PROTOCOL))
+        		 &&
+        		 ( h.getFields().getTypeContent()==null)
+        		 ) 
+    then
+		h.getCapabilities().getCapabilityList().add(Capability.IP_SEC_PROTOCOL);
+		SuitablePSA e=new SuitablePSA();
+		e.setCapability(Capability.IP_SEC_PROTOCOL);
+		PSAList l= new PSAList();
+		e.setPsaList(l);
+        h.getCandidates().getSuitablePSAList().add(e);
+       update( h );
+end
+
+

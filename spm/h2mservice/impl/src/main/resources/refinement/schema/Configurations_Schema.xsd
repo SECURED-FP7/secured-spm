@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Configurations_Schema" xmlns:tns="http://www.example.org/Configurations_Schema" elementFormDefault="qualified">
+
+    <element name="configurations">
+     <complexType>
+     	<attribute name="refinementType" use="required"
+     		type="tns:refinementType">
+     	</attribute>
+     	<attribute name="optimizationType"
+     		type="tns:optimizationType">
+
+     	</attribute>
+     	<attribute name="hspl_file" type="string" use="required"></attribute>
+     	<attribute name="psa_file" type="string"></attribute>
+     	<attribute name="sg_input_file" type="string"></attribute>
+     	<attribute name="sg_ouput_file" type="string"></attribute>
+     	<attribute name="mspl_dir_output" type="string"></attribute>
+     	<attribute name="subject_file" type="string"></attribute>
+     	<attribute name="content_file" type="string"></attribute>
+     	<attribute name="target_file" type="string"></attribute>
+     	<attribute name="description" type="string"></attribute>
+     	<attribute name="maxEvaluationsNo" type="int"></attribute>
+     	<attribute name="mspl_dir_input" type="string"></attribute>
+     	<attribute name="user_psa_file" type="string"></attribute>
+     	<attribute name="market_psa_file" type="string"></attribute>
+     	<attribute name="remediation_file" type="string"></attribute>
+     </complexType>
+    </element>
+
+   
+
+    <simpleType name="refinementType">
+    	<restriction base="string">
+    		<enumeration value="Policy_HSPL"></enumeration>
+    		<enumeration value="Policy_MSPL"></enumeration>
+    		<enumeration value="Application_HSPL"></enumeration>
+    		<enumeration value="Application_MSPL"></enumeration>
+    		<enumeration value="Application_MSPL_SG"></enumeration>
+    		<enumeration value="Application_HSPL_SG"></enumeration>
+    	</restriction>
+    </simpleType>
+
+    <simpleType name="optimizationType">
+    	<restriction base="string">
+    		<enumeration value="minTranferCostminLatency"></enumeration>
+    		<enumeration value="minBuyCostminLatency"></enumeration>
+    		<enumeration value="minBuyCostmaxRating"></enumeration>
+    	</restriction>
+    </simpleType>
+</schema>

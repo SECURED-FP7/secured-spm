@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<ITResource xmlns='http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd' ID='MSPL_05b4255f-f0c1-4958-b8ad-eb08ebc4c0d6'>
+    <configuration xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:type='RuleSetConfiguration'>
+        <capability>
+            <Name>Timing</Name>
+        </capability>
+        <capability>
+            <Name>Filtering_L4</Name>
+        </capability>
+        <defaultAction xsi:type='FilteringAction'>
+            <FilteringActionType>ALLOW</FilteringActionType>
+        </defaultAction>
+        <configurationRule>
+            <configurationRuleAction xsi:type='FilteringAction'>
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type='FilteringConfigurationCondition'>
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress>1.1.1.1,</SourceAddress>
+                </packetFilterCondition>
+                <timeCondition>
+                    <Weekday>MON,TUE,WED,THU,FRI,</Weekday>
+                    <Time>08:00:00-18:00:00,</Time>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type='Priority'>
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+        </configurationRule>
+        <configurationRule>
+            <configurationRuleAction xsi:type='FilteringAction'>
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type='FilteringConfigurationCondition'>
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress>2.2.2.2,</SourceAddress>
+                    <DestinationAddress>3.3.3.3,</DestinationAddress>
+                    <DestinationPort>389,4000-4005,522,1731,1720</DestinationPort>
+                    <ProtocolType>TCP</ProtocolType>
+                </packetFilterCondition>
+                <timeCondition>
+                    <Weekday>MON,TUE,WED,THU,FRI,</Weekday>
+                    <Time>08:00:00-18:00:00,</Time>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type='Priority'>
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+        </configurationRule>
+        <configurationRule>
+            <configurationRuleAction xsi:type='FilteringAction'>
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type='FilteringConfigurationCondition'>
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress>2.2.2.2,</SourceAddress>
+                    <DestinationAddress>3.3.3.3,</DestinationAddress>
+                    <DestinationPort>5060,5061</DestinationPort>
+                </packetFilterCondition>
+                <timeCondition>
+                    <Weekday>MON,TUE,WED,THU,FRI,</Weekday>
+                    <Time>08:00:00-18:00:00,</Time>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type='Priority'>
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+            <isCNF>false</isCNF>
+        </configurationRule>
+        <configurationRule>
+            <configurationRuleAction xsi:type='FilteringAction'>
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type='FilteringConfigurationCondition'>
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress>2.2.2.2,</SourceAddress>
+                    <DestinationAddress>3.3.3.3,</DestinationAddress>
+                    <DestinationPort>16384-32767</DestinationPort>
+                    <ProtocolType>UDP</ProtocolType>
+                </packetFilterCondition>
+                <timeCondition>
+                    <Weekday>MON,TUE,WED,THU,FRI,</Weekday>
+                    <Time>08:00:00-18:00:00,</Time>
+                </timeCondition>
+            </configurationCondition>
+            <externalData xsi:type='Priority'>
+                <value>2</value>
+            </externalData>
+            <Name>Rule2</Name>
+            <isCNF>false</isCNF>
+        </configurationRule>
+        <resolutionStrategy xsi:type='FMR'/>
+        <Name>MSPL_05b4255f-f0c1-4958-b8ad-eb08ebc4c0d6</Name>
+    </configuration>
+</ITResource>

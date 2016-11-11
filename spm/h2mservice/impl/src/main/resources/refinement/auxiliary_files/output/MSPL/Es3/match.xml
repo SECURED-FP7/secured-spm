@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<matching xmlns="http://www.example.org/matching_Schema">
+    <couple PSA="PSA1" MSPL="MSPL_PSA1">
+        <HSPL_ID hspl="HSPL0"/>
+        <HSPL_ID hspl="HSPL1"/>
+    </couple>
+    <couple PSA="PSA2" MSPL="MSPL_PSA2">
+        <HSPL_ID hspl="HSPL1"/>
+        <HSPL_ID hspl="HSPL2"/>
+    </couple>
+    <couple PSA="PSA5" MSPL="MSPL_PSA5">
+        <HSPL_ID hspl="HSPL3"/>
+    </couple>
+    <couple PSA="PSA6" MSPL="MSPL_PSA6">
+        <HSPL_ID hspl="HSPL4"/>
+    </couple>
+</matching>

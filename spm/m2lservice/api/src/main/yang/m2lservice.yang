@@ -1,0 +1,25 @@
+module m2lservice {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:m2lservice";
+    prefix "m2lservice";
+
+    revision "2015-01-05" {
+        description "Initial revision of m2lservice model";
+    }
+    rpc m2ltranslate {
+        description "M2L translation service";
+        input {
+            leaf mspl_rules {
+                type string;
+            }
+            leaf security_control {
+            	type string;
+            }
+        }
+        output {
+            leaf psa_config {
+                type string;
+            }
+        }
+    }
+}

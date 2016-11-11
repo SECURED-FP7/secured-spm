@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Mapping xmlns="http://www.example.org/Refinement_Schema">
+    <service_graph>
+        <service serviceID="Service0">
+            <PSA name="PSA1">
+                <PSA_info/>
+                <PSA_characteristic cost="2.0" latency="0.3" rating="4.0"/>
+                <capability>
+                    <capability_list>Filtering_L4</capability_list>
+                    <capability_list>Timing</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <service serviceID="Service1">
+            <PSA name="PSA2">
+                <PSA_info/>
+                <PSA_characteristic cost="2.0" latency="0.2" rating="3.0"/>
+                <capability>
+                    <capability_list>Filtering_L7</capability_list>
+                    <capability_list>TrafficInspection_L7</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <service serviceID="Service2">
+            <PSA name="PSA5">
+                <PSA_info/>
+                <PSA_characteristic cost="5.0" latency="0.6" rating="5.0"/>
+                <capability>
+                    <capability_list>Advanced_parental_control</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <service serviceID="Service3">
+            <PSA name="PSA6">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="0.2" rating="5.0"/>
+                <capability>
+                    <capability_list>Online_antivirus_analysis</capability_list>
+                </capability>
+            </PSA>
+        </service>
+        <rootService>Service0</rootService>
+        <endService>Service3</endService>
+        <edge>
+            <src_Service>Service0</src_Service>
+            <dst_Service>Service1</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service1</src_Service>
+            <dst_Service>Service2</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service2</src_Service>
+            <dst_Service>Service3</dst_Service>
+        </edge>
+    </service_graph>
+</Mapping>

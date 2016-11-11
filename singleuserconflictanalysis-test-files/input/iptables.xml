@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ITResource xmlns:ns2="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleSetConfiguration">
+        <capability xsi:type="ns2:FilteringCapability">
+            <Name>iptables</Name>
+            <stateful>true</stateful>
+            <applicationLayerFiltering>false</applicationLayerFiltering>
+            <httpFiltering>false</httpFiltering>
+            <contentInspection>false</contentInspection>
+        </capability>
+        <defaultAction xsi:type="ns2:FilteringAction">
+            <FilteringActionType>DENY</FilteringActionType>
+        </defaultAction>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.60</DestinationAddress>
+                    <DestinationPort>22</DestinationPort>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.60</DestinationAddress>
+                    <DestinationPort>80</DestinationPort>
+                    <SourceAddress>192.168.0.0/24</SourceAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>2</value>
+            </externalData>
+            <Name>Rule2</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOw</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>10.10.10.1</DestinationAddress>
+                    <Interface>wan</Interface>
+                    <ProtocolType>icmp</ProtocolType>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <limitRuleHits>20/s</limitRuleHits>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>3</value>
+            </externalData>
+            <Name>Rule3</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <SourceAddress>10.10.10.1</SourceAddress>
+                    <Interface>lan</Interface>
+                    <ProtocolType>icmp</ProtocolType>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <limitRuleHits>20/s</limitRuleHits>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>4</value>
+            </externalData>
+            <Name>Rule4</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.60</DestinationAddress>
+                    <Interface>wan</Interface>
+                    <ProtocolType>icmp</ProtocolType>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <limitRuleHits>20/s</limitRuleHits>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>5</value>
+            </externalData>
+            <Name>Rule5</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <SourceAddress>192.168.0.60</SourceAddress>
+                    <Interface>wan</Interface>
+                    <ProtocolType>icmp</ProtocolType>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <limitRuleHits>20/s</limitRuleHits>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>6</value>
+            </externalData>
+            <Name>Rule6</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>10.10.10.1</DestinationAddress>
+                    <DestinationPort>22</DestinationPort>
+                    <SourceAddress>192.168.0.202</SourceAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>7</value>
+            </externalData>
+            <Name>Rule7</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>10.10.10.1</DestinationAddress>
+                    <DestinationPort>80</DestinationPort>
+                    <SourceAddress>192.168.0.200</SourceAddress>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>8</value>
+            </externalData>
+            <Name>Rule8</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>10.10.10.1</DestinationAddress>
+                    <DestinationPort>80</DestinationPort>
+                    <Interface>wan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>9</value>
+            </externalData>
+            <Name>Rule9</Name>
+        </configurationRule>
+        
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <packetFilterCondition>
+                    <DestinationAddress>192.168.0.0/24</DestinationAddress>
+                    <DestinationPort>21</DestinationPort>
+                    <SourceAddress>10.10.10.0/24</SourceAddress>
+                    <Interface>lan</Interface>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>establishedRelated</State>
+                </statefulCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>10</value>
+            </externalData>
+            <Name>Rule10</Name>
+        </configurationRule>
+        
+        <resolutionStrategy xsi:type="ns2:FMR"/>
+        <Name>TestConf</Name>
+    </configuration>
+</ns2:ITResource>

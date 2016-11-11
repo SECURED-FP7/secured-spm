@@ -1,0 +1,92 @@
+{	
+	"hspl_impls": [ 
+		{
+	    "hspl": {
+	        "hsplid": "0"
+	    },
+	    "impls": [
+	        {
+	            "implid": "0"
+	        },
+	        {
+	            "implid": "1"
+	        }
+	    ]
+	    },
+	    {
+	    "hspl": {
+	        "hsplid": "1"
+	    },
+	    "impls": [
+	        {
+	            "implid": "0"
+	        },
+	        {
+	            "implid": "1"
+	        }
+	    ]
+	    }
+	 ]
+	 
+	 
+	 
+	 "impl_psa": [
+		{
+	    "impl": {
+	        "implid": "0"
+	    },
+	    "psas": [
+	        {
+	            "psaid": "0"
+	        },
+	        {
+	            "psaid": "1"
+	        }
+	    ]
+	    },
+	    {
+	    "impl": {
+	        "implid": "1"
+	    },
+	    "psas": [
+	        {
+	            "psaid": "1"
+	        },
+	        {
+	            "psaid": "2"
+	        }
+	    ]
+	    }
+	 ]
+	 
+	 "psa_latency": [
+	 	{
+	 		"id" : "0",
+	 		"latency" : "0.1"
+	 	},
+	 	{
+	 		"id" : "1",
+	 		"latency" : "0.2"
+	 	},
+	 	{
+	 		"id" : "2",
+	 		"latency" : "0.3"
+	 	}
+	 ]
+	 
+	 "psa_cost": [
+	 	{
+	 		"id" : "0",
+	 		"cost" : "1.0"
+	 	},
+	 	{
+	 		"id" : "1",
+	 		"cost" : "3.0"
+	 	},
+	 	{
+	 		"id" : "2",
+	 		"cost" : "2.5"
+	 	}
+	 ]
+	 
+}

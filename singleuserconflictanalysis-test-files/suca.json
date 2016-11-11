@@ -1,0 +1,6 @@
+{
+    "input": {
+        "input-file": "singleuserconflictanalysis-test-files/input/iptables.xml",
+        "output-file": "/tmp/report.html"
+    }
+}

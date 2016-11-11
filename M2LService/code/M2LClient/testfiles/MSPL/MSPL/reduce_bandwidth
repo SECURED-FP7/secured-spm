@@ -1,0 +1,13 @@
+#!/bin/bash
+TC=/sbin/tc
+
+LAN=eth0
+LAN_R=512.0kbps
+LAN_B=15K
+LAN_L=25ms
+#Clearing the downlink limits
+$TC qdisc del dev $LAN root
+#Apply the downlink limits
+$TC qdisc add dev $LAN handle 10:0 root tbf rate $LAN_R latency $LAN_L burst $LAN_B
+
+

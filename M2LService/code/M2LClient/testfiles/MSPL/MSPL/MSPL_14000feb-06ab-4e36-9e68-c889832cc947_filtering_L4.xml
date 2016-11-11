@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_14000feb-06ab-4e36-9e68-c889832cc947">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>Filtering_L4</Name>
+        </capability>
+        <defaultAction xsi:type="FilteringAction">
+            <FilteringActionType>ALLOW</FilteringActionType>
+        </defaultAction>
+        <configurationRule>
+            <configurationRuleAction xsi:type="FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="FilteringConfigurationCondition">
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress></SourceAddress>
+                    <DestinationAddress>130.192.225.238,</DestinationAddress>
+                    <DestinationPort>53,5353</DestinationPort>
+                </packetFilterCondition>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl56_1" HSPL_text="son authorise_access dns_traffic family_shield_dns,  "/>
+        </configurationRule>
+        <configurationRule>
+            <configurationRuleAction xsi:type="FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="FilteringConfigurationCondition">
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress></SourceAddress>
+                    <DestinationPort>53,5353</DestinationPort>
+                </packetFilterCondition>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl56_1" HSPL_text="son authorise_access dns_traffic family_shield_dns,  "/>
+        </configurationRule>
+        <configurationRule>
+            <configurationRuleAction xsi:type="FilteringAction">
+                <FilteringActionType>DENY</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="FilteringConfigurationCondition">
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress></SourceAddress>
+                    <DestinationAddress>77.242.188.42,</DestinationAddress>
+                </packetFilterCondition>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl56_2" HSPL_text="son no_authorise_access internet_traffic antiparental_control_proxies,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_14000feb-06ab-4e36-9e68-c889832cc947</Name>
+    </configuration>
+</ITResource>

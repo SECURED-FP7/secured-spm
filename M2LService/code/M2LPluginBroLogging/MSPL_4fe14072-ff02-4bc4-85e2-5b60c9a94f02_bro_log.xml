@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_4fe14072-ff02-4bc4-85e2-5b60c9a94f02">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>Logging</Name>
+        </capability>
+        <defaultAction xsi:type="LoggingAction">
+            <loggingActionType>log_connection</loggingActionType>
+        </defaultAction>
+        <configurationRule>
+            <configurationCondition xsi:type="LoggingCondition">
+                <isCNF>false</isCNF>
+                <eventCondition>
+                    <events>EVENT_CONNECTION</events>
+                    <interval>30</interval>
+                    <threshold>50</threshold>
+                </eventCondition>
+               <packetCondition>
+                    <DestinationAddress>123.45.67.89,123.45.67.90,123.45.67.91,</DestinationAddress>
+                </packetCondition>
+                <applicationCondition>
+                    <URL>www.blacksite.com,chat-paradise.com,chat.free.fr,chat.gratis.es,</URL>
+                </applicationCondition>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="HSPL3_Son_ISP" HSPL_text="son enable logging count_connection,  on www.black_site.com,  chat_room,  vtt_address,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_4fe14072-ff02-4bc4-85e2-5b60c9a94f02</Name>
+    </configuration>
+</ITResource>

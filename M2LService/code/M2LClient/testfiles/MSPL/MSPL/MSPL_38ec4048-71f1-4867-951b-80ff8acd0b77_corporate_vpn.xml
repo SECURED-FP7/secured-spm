@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_38ec4048-71f1-4867-951b-80ff8acd0b77">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>IPSec_protocol</Name>
+        </capability>
+        <capability>
+            <Name>Protection_integrity</Name>
+        </capability>
+        <capability>
+            <Name>Protection_confidentiality</Name>
+        </capability>
+        <configurationRule>
+            <configurationRuleAction xsi:type="DataProtectionAction">
+                <technology>ipsec_ESP</technology>
+                <technologyActionParameters>
+                    <technologyParameter xsi:type="IPsecTechnologyParameter">
+                        <IPsecProtocol>ESP</IPsecProtocol>
+                        <isTunnel>false</isTunnel>
+                        <localEndpoint></localEndpoint>
+                        <remoteEndpoint>147.83.42.207</remoteEndpoint>
+                    </technologyParameter>
+                    <technologyParameter xsi:type="IKETechnologyParameter">
+                        <exchangeMode>ikev2</exchangeMode>
+                        <phase1_dh_group>modp1024</phase1_dh_group>
+                        <phase2_compression_algorithm>deflate</phase2_compression_algorithm>
+                        <hash_algorithm>sha1</hash_algorithm>
+                        <ESN>false</ESN>
+                        <encryptionAlgorithm>aes</encryptionAlgorithm>
+                        <lifetime>60m</lifetime>
+                        <rekey_margin>3m</rekey_margin>
+                        <keyring_tries>3</keyring_tries>
+                    </technologyParameter>
+                    <additionalNetworkConfigurationParameters xsi:type="RemoteAccessNetworkConfiguration">
+                        <startIPAddress></startIPAddress>
+                        <localSubnet>10.2.2.0/16</localSubnet>
+                        <remoteSubnet>0.0.0.0/0</remoteSubnet>
+                    </additionalNetworkConfigurationParameters>
+                    <authenticationParameters>
+                        <psKey_value>mypk</psKey_value>
+                        <cert_id>psa@secured.eu</cert_id>
+                        <cert_filename>ClientCert.pem</cert_filename>
+                        <remote_id>@vpn.secured.eu</remote_id>
+                    </authenticationParameters>
+                </technologyActionParameters>
+                <technologyActionSecurityProperty xsi:type="Confidentiality">
+                    <encryptionAlgorithm>AES</encryptionAlgorithm>
+                    <keySize>256</keySize>
+                    <mode>CBC</mode>
+                </technologyActionSecurityProperty>
+                <technologyActionSecurityProperty xsi:type="Integrity">
+                    <integrityAlgorithm>sha1</integrityAlgorithm>
+                </technologyActionSecurityProperty>
+                <technologyActionSecurityProperty xsi:type="Authentication">
+                    <peerAuthenticationMechanism>preshared_key</peerAuthenticationMechanism>
+                </technologyActionSecurityProperty>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="DataProtectionCondition">
+                <isCNF>false</isCNF>
+            </configurationCondition>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="HSPL2_Son_ISP" HSPL_text="son prot_conf_integr internet_traffic corporate_vpn,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_38ec4048-71f1-4867-951b-80ff8acd0b77</Name>
+    </configuration>
+</ITResource>

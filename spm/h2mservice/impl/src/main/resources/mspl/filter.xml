@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ITResource xmlns:ns2="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns2:RuleSetConfiguration">
+        <capability xsi:type="ns2:FilteringCapability">
+            <Name>iptables</Name>
+            <stateful>true</stateful>
+            <applicationLayerFiltering>false</applicationLayerFiltering>
+            <httpFiltering>false</httpFiltering>
+            <contentInspection>false</contentInspection>
+        </capability>
+        <defaultAction xsi:type="ns2:FilteringAction">
+            <FilteringActionType>DENY</FilteringActionType>
+        </defaultAction>
+        <configurationRule>
+            <configurationRuleAction xsi:type="ns2:FilteringAction">
+                <FilteringActionType>ALLOW</FilteringActionType>
+            </configurationRuleAction>
+            <configurationCondition xsi:type="ns2:FilteringConfigurationCondition">
+                <isCNF>false</isCNF>
+                <packetFilterCondition>
+                    <SourceAddress>2.2.2.2</SourceAddress>
+                    <DestinationAddress>1.1.1.1</DestinationAddress>
+                    <SourcePort>80</SourcePort>
+                    <DestinationPort>80</DestinationPort>
+                    <direction>IN</direction>
+                    <Interface>eth0</Interface>
+                    <ProtocolType>TCP</ProtocolType>
+                </packetFilterCondition>
+                <statefulCondition>
+                    <State>ACK</State>
+                    <limitRuleHits>10</limitRuleHits>
+                </statefulCondition>
+                <timeCondition>
+                    <Weekday>M</Weekday>
+                    <Time>8:00-12:00</Time>
+                </timeCondition>
+                <applicationLayerCondition>
+                    <URL>google.com</URL>
+                    <httpMethod>GET</httpMethod>
+                </applicationLayerCondition>
+            </configurationCondition>
+            <externalData xsi:type="ns2:Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+            <isCNF>false</isCNF>
+        </configurationRule>
+        <resolutionStrategy xsi:type="ns2:FMR"/>
+        <Name>TestConf</Name>
+    </configuration>
+</ns2:ITResource>

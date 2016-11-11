@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SchemaFile_Schema" xmlns:tns="http://www.example.org/SchemaFile_Schema" elementFormDefault="qualified">
+
+    <element name="schemas">
+    <complexType>
+    	<attribute name="refinement_Schema" type="string"></attribute>
+    	<attribute name="MSPL_XML_Schema" type="string"></attribute>
+    	<attribute name="configuration_Schema" type="string"></attribute>
+    	<attribute name="matching_Schema" type="string"></attribute>
+    	<attribute name="associationList_Schema" type="string"></attribute>
+    </complexType>
+   
+    </element>
+
+    
+</schema>

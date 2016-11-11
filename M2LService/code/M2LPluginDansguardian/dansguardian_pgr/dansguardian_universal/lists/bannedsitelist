@@ -1,0 +1,114 @@
+#domains in banned list
+#Don't bother with the www. or the http://
+
+#The bannedurllist is for blocking PART of a site
+#The bannedsitelist is for blocking ALL of a site
+
+#As of DansGuardian 2.7.3 you can now include
+#.tld so for example you can match .gov for example
+
+#The 'grey' lists override the 'banned' lists.
+#The 'exception' lists override the 'banned' lists also.
+#The difference is that the 'exception' lists completely switch
+#off *all* other filtering for the match.  'grey' lists only
+#stop the URL filtering and allow the normal filtering to work.
+
+#An example of grey list use is when in Blanket Block (whitelist)
+#mode and you want to allow some sites but still filter as normal
+#on their content
+
+#Another example of grey list use is when you ban a site but want
+#to allow part of it.
+
+#To include additional files in this list use this example:
+#.Include</home/psa/anotherbannedurllist>
+
+#You can have multiple .Includes.
+
+# Time limiting syntax:
+# #time: <start hour> <start minute> <end hour> <end minute> <days>
+# Example:
+##time: 9 0 17 0 01234
+# Remove the first # from the line above to enable this list only from
+# 9am to 5pm, Monday to Friday.
+
+# List categorisation
+#listcategory: "Banned Sites"
+
+#List other sites to block:
+
+badboys.com
+
+
+
+#Blanket Block.  To block all sites except those in the
+#exceptionsitelist and greysitelist files, remove
+#the # from the next line to leave only a '**':
+#**
+
+#Blanket SSL/CONNECT Block.  To block all SSL 
+#and CONNECT tunnels except to addresses in the
+#exceptionsitelist and greysitelist files, remove
+#the # from the next line to leave only a '**s':
+#**s
+
+#Blanket IP Block.  To block all sites specified only as an IP,
+#remove the # from the next line to leave only a '*ip':
+#*ip
+
+#Blanket SSL/CONNECT IP Block.  To block all SSL and CONNECT
+#tunnels to sites specified only as an IP,
+#remove the # from the next line to leave only a '*ips':
+#*ips
+
+
+# The squidGuard advert domain/URL lists are now included by default.
+# To work with advanced ad blocking & the logadblocks option, advert
+# phrase/site/URL lists should have the string "ADs" in their listcategory.
+.Include</home/psa/lists/blacklists/ads/domains>
+
+#Remove the # from the following and edit as needed to use a stock
+#squidGuard/urlblacklists collection.
+#.Include</home/psa/lists/blacklists/adult/domains>
+#.Include</home/psa/lists/blacklists/aggressive/domains>
+#.Include</home/psa/lists/blacklists/artnudes/domains>
+#.Include</home/psa/lists/blacklists/audio-video/domains>
+#.Include</home/psa/lists/blacklists/beerliquorinfo/domains>
+#.Include</home/psa/lists/blacklists/beerliquorsale/domains>
+#.Include</home/psa/lists/blacklists/chat/domains>
+#.Include</home/psa/lists/blacklists/childcare/domains>
+#.Include</home/psa/lists/blacklists/clothing/domains>
+#.Include</home/psa/lists/blacklists/culinary/domains>
+#.Include</home/psa/lists/blacklists/dialers/domains>
+#.Include</home/psa/lists/blacklists/drugs/domains>
+#.Include</home/psa/lists/blacklists/entertainment/domains>
+#.Include</home/psa/lists/blacklists/forums/domains>
+#.Include</home/psa/lists/blacklists/frencheducation/domains>
+#.Include</home/psa/lists/blacklists/gambling/domains>
+#.Include</home/psa/lists/blacklists/government/domains>
+#.Include</home/psa/lists/blacklists/hacking/domains>
+#.Include</home/psa/lists/blacklists/homerepair/domains>
+#.Include</home/psa/lists/blacklists/hygiene/domains>
+#.Include</home/psa/lists/blacklists/jewelry/domains>
+#.Include</home/psa/lists/blacklists/jobsearch/domains>
+#.Include</home/psa/lists/blacklists/kidstimewasting/domains>
+#.Include</home/psa/lists/blacklists/mail/domains>
+#.Include</home/psa/lists/blacklists/news/domains>
+#.Include</home/psa/lists/blacklists/onlineauctions/domains>
+#.Include</home/psa/lists/blacklists/onlinegames/domains>
+#.Include</home/psa/lists/blacklists/onlinepayment/domains>
+#.Include</home/psa/lists/blacklists/personalfinance/domains>
+#.Include</home/psa/lists/blacklists/pets/domains>
+#.Include</home/psa/lists/blacklists/porn/domains>
+#.Include</home/psa/lists/blacklists/proxy/domains>
+#.Include</home/psa/lists/blacklists/publicite/domains>
+#.Include</home/psa/lists/blacklists/redirector/domains>
+#.Include</home/psa/lists/blacklists/ringtones/domains>
+#.Include</home/psa/lists/blacklists/sportnews/domains>
+#.Include</home/psa/lists/blacklists/sports/domains>
+#.Include</home/psa/lists/blacklists/vacation/domains>
+#.Include</home/psa/lists/blacklists/violence/domains>
+#.Include</home/psa/lists/blacklists/virusinfected/domains>
+#.Include</home/psa/lists/blacklists/warez/domains>
+
+# You will need to edit to add and remove categories you want

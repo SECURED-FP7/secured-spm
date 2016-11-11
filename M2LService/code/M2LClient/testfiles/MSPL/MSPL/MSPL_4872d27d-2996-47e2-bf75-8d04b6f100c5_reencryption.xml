@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_4872d27d-2996-47e2-bf75-8d04b6f100c5">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>TLS_protocol</Name>
+        </capability>
+        <capability>
+            <Name>reencrypt</Name>
+        </capability>
+        <capability>
+            <Name>Protection_integrity</Name>
+        </capability>
+        <capability>
+            <Name>Protection_confidentiality</Name>
+        </capability>
+        <configurationRule>
+            <configurationRuleAction xsi:type="DataProtectionAction">
+                <technologyActionParameters>
+                    <technologyParameter xsi:type="TLS_SSL_TechnologyParameter">
+                        <ciphers-client>ALL</ciphers-client>
+                        <ssl-version-client>SSLv23</ssl-version-client>
+                        <ciphers-server>ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK</ciphers-server>
+                        <ssl-version-server>TLSv1.2</ssl-version-server>
+                    </technologyParameter>
+                    <additionalNetworkConfigurationParameters xsi:type="reencryptNetworkConfiguration" reencryption_strategy="ONLY-SECURE"/>
+                </technologyActionParameters>
+            </configurationRuleAction>
+            <externalData xsi:type="Priority">
+                <value>0</value>
+            </externalData>
+            <Name>Rule0</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="HSPL21_Son_ISP" HSPL_text="son prot_conf_integr internet_traffic web,  "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_4872d27d-2996-47e2-bf75-8d04b6f100c5</Name>
+    </configuration>
+</ITResource>

@@ -1,0 +1,29 @@
+module singleuserconflictanalysis {
+    yang-version 1;
+    namespace "urn:opendaylight:params:xml:ns:yang:singleuserconflictanalysis";
+    prefix "singleuserconflictanalysis";
+
+    revision "2015-01-05" {
+        description "Initial revision of singleuserconflictanalysis model";
+    }
+    rpc analyse {
+        input {
+            leaf input-file {
+                type string;
+                description "Input file path";
+            }
+            leaf output-file {
+                type string;
+                description "Output file path";
+            }
+        }
+        output {
+            leaf status-code {
+                type int32;
+            }
+            leaf status-message {
+                type string;
+            }
+        }
+    }
+}

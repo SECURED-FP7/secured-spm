@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<M2LPluginsList>
+    <pluginsList name="general-plugin">
+        <path>plugins/general-plugin.jar</path>
+        <securityControl>general</securityControl>
+    </pluginsList>
+    <pluginsList name="iptables">
+        <path>plugins/IPTables_M2L_plugin.jar</path>
+        <securityControl>iptables</securityControl>
+    </pluginsList>
+    <pluginsList name="squid">
+        <path>plugins/Squid_M2L_plugin.jar</path>
+        <securityControl>squid</securityControl>
+    </pluginsList>
+    <pluginsList name="dansguardian">
+        <path>plugins/Dansguardian_M2L_plugin.jar</path>
+        <securityControl>dansguardian</securityControl>
+    </pluginsList>
+    <pluginsList name="reencrypt">
+        <path>plugins/reencryption_M2L_plugin.jar</path>
+        <securityControl>reencrypt</securityControl>
+    </pluginsList>
+    <pluginsList name="strongswan">
+        <path>plugins/strongswan_M2L_plugin.jar</path>
+        <securityControl>strongswan</securityControl>
+    </pluginsList>
+    <pluginsList name="antiphishing">
+        <path>plugins/antiphishing_M2L_plugin.jar</path>
+        <securityControl>antiphishing</securityControl>
+    </pluginsList>
+    <pluginsList name="anonymity">
+        <path>plugins/anonymity_M2L_plugin.jar</path>
+        <securityControl>anonymity</securityControl>
+    </pluginsList>
+    <pluginsList name="reducebandwidth">
+        <path>plugins/reducebandwidth_M2L_plugin.jar</path>
+        <securityControl>reducebandwidth</securityControl>
+    </pluginsList>
+    <pluginsList name="brologging">
+        <path>plugins/brologging_M2L_plugin.jar</path>
+        <securityControl>brologging</securityControl>
+    </pluginsList>
+    <pluginsList name="bromalware">
+        <path>plugins/bromalware_M2L_plugin.jar</path>
+        <securityControl>bromalware</securityControl>
+    </pluginsList>
+</M2LPluginsList>

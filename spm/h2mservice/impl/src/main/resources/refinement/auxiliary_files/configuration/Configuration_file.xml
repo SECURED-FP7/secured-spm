@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:configurations refinementType="Application" hspl_file="./src/main/auxiliary_files/input/HSPL/HSPL.xml" psa_file="" optimizationType="minTranferCostminLatency"  sg_input_file="./src/main/auxiliary_files/input/SG/User_SG.xml" sg_ouput_file="./src/main/auxiliary_files/output/SG/User_SG.xml" mspl_dir="./src/main/auxiliary_files/output/MSPL" ></tns:configurations>

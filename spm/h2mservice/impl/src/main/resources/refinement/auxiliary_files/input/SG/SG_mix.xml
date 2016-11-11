@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Mapping xmlns:tns="http://www.example.org/Refinement_Schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Refinement_Schema Refinement_Schema.xsd ">
+  
+  <tns:service_graph>
+  
+    <tns:service serviceID="idvalue0">
+      <tns:PSA name="F4_1">
+        <tns:PSA_info/>
+        <tns:PSA_characteristic cost="0.0" latency="0.0" rating="0.0"/>
+        <tns:capability>
+          <tns:capability_list>Filtering_L4</tns:capability_list>
+        </tns:capability>
+      </tns:PSA>
+      <tns:capability>Filtering_L4</tns:capability>
+    </tns:service>
+    
+    <tns:service serviceID="idvalue1">
+      <tns:PSA name="F7_1">
+        <tns:PSA_info/>
+        <tns:PSA_characteristic cost="2.0" latency="3.0" rating="4.0"/>
+        <tns:capability>
+          <tns:capability_list>Filtering_L7</tns:capability_list>
+        </tns:capability>
+      </tns:PSA>
+      <tns:capability>Filtering_L7</tns:capability>
+    </tns:service>
+  
+    <tns:service serviceID="idvalue2">
+      <tns:PSA name="T7_1">
+        <tns:PSA_info/>
+        <tns:PSA_characteristic cost="1.0" latency="3.0" rating="4.0"/>
+        <tns:capability>
+          <tns:capability_list>TrafficInspection_L7</tns:capability_list>
+        </tns:capability>
+      </tns:PSA>
+      <tns:capability>TrafficInspection_L7</tns:capability>
+    </tns:service>
+    
+  <tns:service serviceID="idvalue3">
+      <!-- <tns:PSA name="T1">
+        <tns:PSA_info/>
+        <tns:PSA_characteristic cost="1.0" latency="3.0" rating="4.0"/>
+        <tns:capability>
+          <tns:capability_list>Timing</tns:capability_list>
+        </tns:capability>
+      </tns:PSA> -->
+      <tns:capability>Timing</tns:capability>
+    </tns:service>
+    
+    <tns:rootService>idvalue0</tns:rootService>
+    <tns:endService>idvalue3</tns:endService>
+    
+    <tns:edge>
+      <tns:src_Service>idvalue0</tns:src_Service>
+      <tns:dst_Service>idvalue1</tns:dst_Service>
+      <tns:networkFields/>
+    </tns:edge>
+    
+     <tns:edge>
+      <tns:src_Service>idvalue1</tns:src_Service>
+      <tns:dst_Service>idvalue2</tns:dst_Service>
+      <tns:networkFields/>
+    </tns:edge>
+        
+         <tns:edge>
+      <tns:src_Service>idvalue2</tns:src_Service>
+      <tns:dst_Service>idvalue3</tns:dst_Service>
+      <tns:networkFields/>
+    </tns:edge>
+  
+  </tns:service_graph>
+</tns:Mapping>

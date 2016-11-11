@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:associationList xmlns:tns="http://www.example.org/AssociationList" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/AssociationList ../../java/schema/AssociationList_Schema.xsd ">
+  <tns:associations Name="Polito">
+    <tns:IP ip_value="3.3.3.3"/>
+  </tns:associations>
+  
+   <tns:associations Name="Intranet">
+    <tns:IP ip_value="5.5.5.5"/>
+  </tns:associations>
+  
+   <tns:associations Name="P2P">
+    <tns:IP ip_value="7.7.7.7"/>
+  </tns:associations>
+  
+  <tns:associations Name="default_gateway">
+    <tns:IP ip_value="8.8.8.8"/>
+  </tns:associations>
+  
+  
+  
+  
+</tns:associationList>

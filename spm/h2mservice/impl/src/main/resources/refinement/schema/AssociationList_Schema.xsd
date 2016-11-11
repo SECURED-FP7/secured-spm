@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/AssociationList" xmlns:tns="http://www.example.org/AssociationList" elementFormDefault="qualified">
+
+    <element name="associationList" >
+    <complexType>
+    	<sequence>
+    		<element name="associations" type="tns:association" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+       </complexType>
+    </element>
+
+
+    <complexType name="association">
+    	<sequence>
+    		<element name="IP" type="tns:IP" minOccurs="0"
+    			maxOccurs="unbounded">
+    		</element>
+    		<element name="URI" type="tns:URI" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="RE" type="tns:RE" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="Event" type="tns:event" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="Mime-type" type="tns:Mime-type" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    	<attribute name="Name" type="ID"></attribute>
+    </complexType>
+
+    <complexType name="IP">
+    	<attribute name="ip_value" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="URI">
+    	<attribute name="URI_value" type="string"></attribute>
+    </complexType>
+
+    <complexType name="RE">
+      	<attribute name="re_value" type="string"></attribute>  
+    </complexType>
+    
+      <complexType name="event">
+    	<sequence>
+			<element name="events_name" type="string" maxOccurs="unbounded" minOccurs="0"/>
+			<element maxOccurs="unbounded" minOccurs="0" name="interval" type="integer"/>
+			<element name="threshold" type="integer" maxOccurs="unbounded" minOccurs="0" />
+		</sequence>
+		    </complexType>
+		
+
+      <complexType name="Mime-type">
+      	<attribute name="Mime-type_value" type="string"></attribute>
+      </complexType>
+</schema>

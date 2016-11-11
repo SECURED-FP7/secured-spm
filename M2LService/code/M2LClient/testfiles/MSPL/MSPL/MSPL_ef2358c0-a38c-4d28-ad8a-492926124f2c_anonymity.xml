@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ITResource xmlns="http://modeliosoft/xsddesigner/a22bd60b-ee3d-425c-8618-beb6a854051a/ITResource.xsd" ID="MSPL_ef2358c0-a38c-4d28-ad8a-492926124f2c">
+    <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RuleSetConfiguration">
+        <capability>
+            <Name>anonimity</Name>
+        </capability>
+        <configurationRule>
+            <configurationRuleAction xsi:type="AnonimityAction">
+                <EnableActionType enable="true" objectToEnable="ANONIMITY"/>
+                <country>uk</country>
+            </configurationRuleAction>
+            <externalData xsi:type="Priority">
+                <value>1</value>
+            </externalData>
+            <Name>Rule1</Name>
+            <isCNF>false</isCNF>
+            <HSPL HSPL_id="hspl54" HSPL_text="son enable anonimity "/>
+        </configurationRule>
+        <resolutionStrategy xsi:type="FMR"/>
+        <Name>MSPL_ef2358c0-a38c-4d28-ad8a-492926124f2c</Name>
+    </configuration>
+</ITResource>

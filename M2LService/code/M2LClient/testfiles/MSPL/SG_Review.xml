@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Mapping xmlns="http://www.example.org/Refinement_Schema">
+    <service_graph>
+        <service serviceID="Service0">
+            <PSA name="iptables">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>Filtering_L4</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_14000feb-06ab-4e36-9e68-c889832cc947"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service1">
+            <PSA name="dansguardian">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>Advanced_parental_control</capability_list>
+                    <capability_list>TrafficInspection_L7</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_f5d2c672-62a4-4083-b776-85170bfb01b3"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service2">
+            <PSA name="BroLogging">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>Logging</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_4fe14072-ff02-4bc4-85e2-5b60c9a94f02"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service3">
+            <PSA name="antiPhishingPSA">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>antiPhishing</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_bc0d74e4-c67b-419b-9f09-4b03b27db7ac"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service4">
+            <PSA name="BroMalware">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>Offline_malware_analysis</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_a5c42245-fb8f-4433-aa2e-16d944303907"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service5">
+            <PSA name="bandwidthControl">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>Reduce_bandwidth</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_a8260e45-fabc-4354-adab-2fb1dfae6dfd"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service6">
+            <PSA name="strongswan">
+                <PSA_info/>
+                <PSA_characteristic cost="4.0" latency="0.2" rating="1.0"/>
+                <capability>
+                    <capability_list>Protection_confidentiality</capability_list>
+                    <capability_list>Protection_integrity</capability_list>
+                    <capability_list>IPSec_protocol</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_38ec4048-71f1-4867-951b-80ff8acd0b77"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service7">
+            <PSA name="reencryptPSA">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>TLS_protocol</capability_list>
+                    <capability_list>Protection_integrity</capability_list>
+                    <capability_list>Protection_confidentiality</capability_list>
+                    <capability_list>reencrypt</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_4872d27d-2996-47e2-bf75-8d04b6f100c5"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <service serviceID="Service8">
+            <PSA name="anonimityVPN">
+                <PSA_info/>
+                <PSA_characteristic cost="1.0" latency="1.0" rating="1.0"/>
+                <capability>
+                    <capability_list>anonimity</capability_list>
+                </capability>
+                <MSPL_list>
+                    <mspl_list id="MSPL_ef2358c0-a38c-4d28-ad8a-492926124f2c"/>
+                </MSPL_list>
+            </PSA>
+        </service>
+        <rootService>Service0</rootService>
+        <endService>Service8</endService>
+        <edge>
+            <src_Service>Service0</src_Service>
+            <dst_Service>Service1</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service1</src_Service>
+            <dst_Service>Service2</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service2</src_Service>
+            <dst_Service>Service3</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service3</src_Service>
+            <dst_Service>Service4</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service4</src_Service>
+            <dst_Service>Service5</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service5</src_Service>
+            <dst_Service>Service6</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service6</src_Service>
+            <dst_Service>Service7</dst_Service>
+        </edge>
+        <edge>
+            <src_Service>Service7</src_Service>
+            <dst_Service>Service8</dst_Service>
+        </edge>
+    </service_graph>
+</Mapping>
