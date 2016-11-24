@@ -10,16 +10,17 @@
 ## SPM Architecture
 ![Alt text](docs/spm.png)
 
-Currentrly there are integrated three modules to the Model Driven SAL - ODL:
+Currently the SPM is based on the Model Driven SAL of the OpenDayLight (ODL) network controller, 
+extended with the following three modules:
 
 1. **m2lservice**
 
-    This module performs the translation between mspl language to low level PSA configuration. To this end, the PSA plugin is requested to a PSA plugin 
-    repository, locally executed passing as input the mspl policies. As a result, the low level PSA specific configurations are returned.
+    This module performs the translation between MSPL language to low level PSA configuration. To this end, the PSA plugin is requested from a PSA plugin 
+    repository, locally executed passing as input the MSPL policies. As a result, the low level PSA specific configurations are returned.
 
 2. **h2mservice (Refinement Service)**
 
-    High to medium language translation and refinement service.
+    High to medium language (HSPL->MSPL) translation and refinement service.
 
 3. **reconciliation service**
     - reconciliation
@@ -32,7 +33,11 @@ Currentrly there are integrated three modules to the Model Driven SAL - ODL:
 * Java 1.7+, including the JDK
 * Apache Maven 3.2.1+
 
-### Installing Apache Maven
+```bash
+$ apt-get install ant 
+```
+
+### Installing Apache Maven 3.2.1
 *  [Instructions here](docs/Install_apache_maven.md)
 
 ## Installing and running the SPM
@@ -40,13 +45,13 @@ Currentrly there are integrated three modules to the Model Driven SAL - ODL:
 
     ```sh
     $ cd $HOME
-    $ git clone git@gitlab.secured-fp7.eu:secured/spm.git -b devel
+    $ git clone https://github.com/SECURED-FP7/secured-spm.git
     ```
     
 2. Compile
 
     ```sh
-    $ cd spm.git/spm/spm/spmdist
+    $ cd secured-spm/spm/spmdist/
     $ mvn clean install -DskipTests
     ```
     > Note: you can speed-up the compilation process by skipping testing using the -DskipTests flag (i.e. `mvn clean install -DskipTests`)
@@ -57,7 +62,7 @@ Currentrly there are integrated three modules to the Model Driven SAL - ODL:
     First of all we need to run M2LServiceCoordinator and M2LPluginService:
 
     ```sh
-    $ cd $HOME/spm.git/spm/M2LService/
+    $ cd $HOME/secured-spm/spm/m2lservice/
     $ tar xzf test_configuration_tomcat.tar.gz
     $ cd test_configuration_tomcat/apache-tomcat-8.0.24_M2LPluginService_M2LServiceCoordinator/bin/
     $ ./startup.sh
@@ -66,7 +71,7 @@ Currentrly there are integrated three modules to the Model Driven SAL - ODL:
     Wait some minutes, until the page http://localhost:8090/ is available
 
     ```sh
-    $ cd $HOME/spm.git/spm/spm/spmdist
+    $ cd $HOME/secured-spm/spm/spmdist/
     $ karaf/target/assembly/bin/karaf
     ```
     After few seconds you will see a prompt (see below). Now you are in the karaf console.
